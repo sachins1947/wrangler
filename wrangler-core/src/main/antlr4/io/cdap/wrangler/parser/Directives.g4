@@ -140,7 +140,7 @@ numberRange
  ;
 
 value
- : String | Number | Column | Bool
+ : String | Number | Column | Bool | BYTE_SIZE | TIME_DURATION
  ;
 
 ecommand
@@ -294,6 +294,16 @@ UnicodeEscape
 
 fragment
    HexDigit : ('0'..'9'|'a'..'f'|'A'..'F') ;
+
+  fragment
+  BYTE_UNIT: ('B' | 'KB' | 'MB' | 'GB' | 'TB');
+
+  fragment
+  TIME_UNIT: ('ns' | 'ms' | 's' | 'm' | 'h');
+
+  BYTE_SIZE: Number BYTE_UNIT;
+TIME_DURATION: Number TIME_UNIT;
+// End of new lexer rules
 
 Comment
  : ('//' ~[\r\n]* | '/*' .*? '*/' | '--' ~[\r\n]* ) -> skip
