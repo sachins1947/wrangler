@@ -216,3 +216,13 @@ Cask is a trademark of Cask Data, Inc. All rights reserved.
 
 Apache, Apache HBase, and HBase are trademarks of The Apache Software Foundation. Used with
 permission. No endorsement by The Apache Software Foundation is implied by the use of these marks.
+
+
+## `aggregate-stats` Directive
+
+The `aggregate-stats` directive allows you to perform statistical aggregation (e.g., sum, count, average) on a given column using either a **byte size** or a **time duration** as a windowing parameter.
+
+### Usage
+
+```wrangler
+aggregate-stats :<column> window <value>
