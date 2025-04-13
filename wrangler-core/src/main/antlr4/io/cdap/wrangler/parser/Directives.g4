@@ -128,7 +128,7 @@ propertyList
  ;
 
 property
- : Identifier '=' ( text | number | bool )
+ : Identifier '=' ( text | number | bool | byteSize | timeDuration )
  ;
 
 numberRanges
@@ -140,7 +140,7 @@ numberRange
  ;
 
 value
- : String | Number | Column | Bool
+ : String | Number | Column | Bool | BYTE_SIZE | TIME_DURATION
  ;
 
 ecommand
@@ -166,6 +166,14 @@ number
 bool
  : Bool
  ;
+
+byteSize
+  : BYTE_SIZE
+  ;
+
+timeDuration
+  : TIME_DURATION
+  ;
 
 condition
  : OBrace (~CBrace | condition)* CBrace
@@ -247,6 +255,21 @@ BackSlash: '\\';
 Dollar   : '$';
 Tilde    : '~';
 
+BYTE_SIZE
+  : [0-9]+('.'[0-9]+)? BYTE_UNIT
+  ;
+
+TIME_DURATION
+  : [0-9]+('.'[0-9]+)? TIME_UNIT
+  ;
+
+fragment BYTE_UNIT
+  : 'B' | 'KB' | 'MB' | 'GB' | 'TB' | 'KiB' | 'MiB' | 'GiB'
+  ;
+
+fragment TIME_UNIT
+  : 'ms' | 's' | 'm' | 'h' | 'd'
+  ;
 
 Bool
  : 'true'
