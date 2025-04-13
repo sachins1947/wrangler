@@ -1,0 +1,3 @@
+1. "Generate an ANTLR4 grammar rule for parsing byte sizes like 10KB, 1.5MB"
+2. "Write a Java class to parse strings like 10KB into bytes"
+3. "Create a test case for a directive that aggregates byte sizes and time durations"
